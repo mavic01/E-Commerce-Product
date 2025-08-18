@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import type { FC } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import thumbs from "../data/ImageThumbnail"
+import thumbs from "../data/ImageThumbnail";
 
 interface productProps {
   cartCount: number;
@@ -12,9 +12,14 @@ interface productProps {
   setQty: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Product: FC<productProps> = ({ cartCount, setCartCount, currentImg, setCurrentImg, qty, setQty }) => {
-  
-
+const Product: FC<productProps> = ({
+  cartCount,
+  setCartCount,
+  currentImg,
+  setCurrentImg,
+  qty,
+  setQty,
+}) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -44,12 +49,39 @@ const Product: FC<productProps> = ({ cartCount, setCartCount, currentImg, setCur
         <div className="max-w-5xl w-full grid md:grid-cols-2 gap-25">
           {/* left */}
           <div>
-            <div className="rounded-lg overflow-hidden">
+            <div className="relative rounded-lg overflow-hidden">
               <img
-                onClick={openDialog}
+                onClick={() => {
+                  if (window.innerWidth >= 1024) {
+                    openDialog();
+                  }
+                }}
                 src={currentImg}
                 alt="Main"
                 className="w-full cursor-pointer"
+              />
+              <ChevronLeft
+                onClick={() => {
+                  const currentIndex = thumbs.findIndex(
+                    (t) => t.big === currentImg
+                  );
+                  const prevIndex =
+                    (currentIndex - 1 + thumbs.length) % thumbs.length;
+                  setCurrentImg(thumbs[prevIndex].big);
+                }}
+                size={30}
+                className="md:hidden rounded-full bg-white p-1 font-bold absolute top-[190px] right-[370px] cursor-pointer"
+              />
+              <ChevronRight
+                onClick={() => {
+                  const currentIndex = thumbs.findIndex(
+                    (t) => t.big === currentImg
+                  );
+                  const nextIndex = (currentIndex + 1) % thumbs.length;
+                  setCurrentImg(thumbs[nextIndex].big);
+                }}
+                size={30}
+                className="md:hidden rounded-full bg-white p-1 font-bold absolute top-[190px] left-[370px] cursor-pointer"
               />
             </div>
             <div className="flex md:gap-4 gap-1 mt-6">
@@ -92,7 +124,7 @@ const Product: FC<productProps> = ({ cartCount, setCartCount, currentImg, setCur
             <span className="line-through text-gray-400 mt-1">$250.00</span>
 
             <div className="mt-6 flex flex-col md:flex-row gap-4">
-              <div className="flex items-center bg-gray-100 rounded-lg w-fit">
+              <div className="flex items-center justify-between md:block md:w-fit bg-gray-100 rounded-lg w-full">
                 <button
                   onClick={() => qty > 0 && setQty(qty - 1)}
                   className="px-4 py-2 text-[#ff7d1a] font-bold text-lg cursor-pointer"
@@ -110,7 +142,7 @@ const Product: FC<productProps> = ({ cartCount, setCartCount, currentImg, setCur
 
               <button
                 onClick={handleAddToCart}
-                className="cursor-pointer flex-1 bg-[#ff7d1a] hover:bg-[#fb6406] text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-3 shadow-lg"
+                className="cursor-pointer flex-1 bg-[#ff7d1a] hover:bg-[#fb6406] text-black font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-3 shadow-lg"
               >
                 <img
                   className="w-4 h-4 object-cover"
