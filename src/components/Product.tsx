@@ -70,7 +70,7 @@ const Product: FC<productProps> = ({
                   setCurrentImg(thumbs[prevIndex].big);
                 }}
                 size={30}
-                className="md:hidden rounded-full bg-white p-1 font-bold absolute top-[190px] right-[370px] cursor-pointer"
+                className="sm:hidden rounded-full bg-white p-1 font-bold absolute top-[190px] right-[292px] cursor-pointer"
               />
               <ChevronRight
                 onClick={() => {
@@ -81,7 +81,7 @@ const Product: FC<productProps> = ({
                   setCurrentImg(thumbs[nextIndex].big);
                 }}
                 size={30}
-                className="md:hidden rounded-full bg-white p-1 font-bold absolute top-[190px] left-[370px] cursor-pointer"
+                className="sm:hidden rounded-full bg-white p-1 font-bold absolute top-[190px] left-[292px] cursor-pointer"
               />
             </div>
             <div className="flex md:gap-4 gap-1 mt-6">
