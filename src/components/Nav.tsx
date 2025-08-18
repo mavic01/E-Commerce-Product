@@ -43,19 +43,19 @@ const Nav: FC<NavProps> = ({ cartCount, setCartCount, currentImg, qty }) => {
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center cursor-pointer gap-6">
             <li className="text-[#555] hover:text-[#888]">
-              <a href="/collection">Collection</a>
+              <a href="#">Collection</a>
             </li>
             <li className="text-[#555] hover:text-[#888]">
-              <a href="/men">Men</a>
+              <a href="#">Men</a>
             </li>
             <li className="text-[#555] hover:text-[#888]">
-              <a href="/women">Women</a>
+              <a href="#">Women</a>
             </li>
             <li className="text-[#555] hover:text-[#888]">
-              <a href="/about">About</a>
+              <a href="#">About</a>
             </li>
             <li className="text-[#555] hover:text-[#888]">
-              <a href="/contact">Contact</a>
+              <a href="#">Contact</a>
             </li>
           </ul>
 
