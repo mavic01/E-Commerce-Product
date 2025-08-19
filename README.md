@@ -38,7 +38,7 @@ Users should be able to:
 
 ### Screenshot
 
-![App Screenshot](/images/preview.png)
+- [App Screenshot](https://ibb.co/t9Q67hP)
 
 ### Links
 
