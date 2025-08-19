@@ -46,10 +46,10 @@ const Product: FC<productProps> = ({
   return (
     <>
       <section className="min-h-screen flex items-center justify-center px-6 py-10 bg-white">
-        <div className="max-w-5xl w-full grid md:grid-cols-2 gap-25">
+        <div className="max-w-5xl w-full grid md:grid-cols-2 gap-8">
           {/* left */}
-          <div>
-            <div className="relative rounded-lg overflow-hidden">
+          <div className="flex flex-col items-center">
+            <div className="relative rounded-xl  overflow-hidden lg:w-[85%]">
               <img
                 onClick={() => {
                   if (window.innerWidth >= 1024) {
@@ -103,21 +103,24 @@ const Product: FC<productProps> = ({
 
           {/* right */}
           <div className="flex flex-col justify-center">
-            <h2 className="uppercase tracking-widest text-sm font-bold text-gray-500">
+            <h2 className="uppercase tracking-widest text-sm font-bold text-[#68707dff]">
               Sneaker Company
             </h2>
-            <h1 className="text-4xl font-bold mt-3 text-gray-900 leading-snug">
-              Fall Limited Edition Sneakers
+            <h1 className="text-4xl font-bold mt-3 text-[#1d2025ff] leading-snug">
+              Fall Limited Edition <br />
+              Sneakers
             </h1>
-            <p className="text-gray-500 mt-6 leading-relaxed">
+            <p className="text-[#68707dff] mt-6 leading-relaxed">
               These low-profile sneakers are your perfect casual wear companion.
               Featuring a durable rubber outer sole, they'll withstand
               everything the weather can offer.
             </p>
 
             <div className="flex items-center gap-4 mt-6">
-              <span className="text-3xl font-bold text-gray-900">$125.00</span>
-              <span className="bg-gray-900 text-white text-sm font-bold px-2 py-1 rounded">
+              <span className="text-3xl font-bold text-[#1d2025ff]">
+                $125.00
+              </span>
+              <span className="bg-[#1d2025ff] text-white text-sm font-bold px-2 py-1 rounded">
                 50%
               </span>
             </div>
@@ -142,7 +145,7 @@ const Product: FC<productProps> = ({
 
               <button
                 onClick={handleAddToCart}
-                className="cursor-pointer flex-1 bg-[#ff7d1a] hover:bg-[#fb6406] text-black font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-3 shadow-lg"
+                className="cursor-pointer flex-1 bg-[#ff7d1a] hover:bg-[#fb6406] text-[#1d2025ff] font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-3 shadow-lg"
               >
                 <img
                   className="w-4 h-4 object-cover"

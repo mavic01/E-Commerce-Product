@@ -1,69 +1,102 @@
-# React + TypeScript + Vite
+# E-commerce product page solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the **E-commerce product page challenge**
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [The Challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My Process](#my-process)
+  - [Built With](#built-with)
+  - [What I Learned](#what-i-learned)
+  - [Continued Development](#continued-development)
+  - [Useful Resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Overview
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+This is a fully interactive e-commerce product page I built with React, Vite, TypeScript, and Tailwind CSS.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+The page includes dynamic cart functionality, product image previews, and a responsive design that adapts beautifully across desktop and mobile.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+I built this project as part of my frontend engineering learning journey, with the goal of practicing real-world patterns and improving how I handle UI/UX details.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### The challenge
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Users should be able to:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Open a lightbox gallery by clicking on the large product image
+- Switch the large product image by clicking on the small thumbnail images
+- Add items to the cart
+- View the cart and remove items from it
+
+### Screenshot
+
+![App Screenshot](/images/preview.png)
+
+### Links
+
+- Repository: [Github Repo](https://github.com/mavic01/E-Commerce-Product)
+- Live Site URL: [E-Commerce Product Page](https://e-commerce-product-yiw9.vercel.app/)
+
+## My process
+
+**Built with**
+
+- ⚛️ React 18 – component-based UI
+
+- ⚡ Vite – fast build tool & dev server
+
+- 📘 TypeScript – type-safe state & props
+
+- 🎨 Tailwind CSS – responsive, utility-first styling
+
+
+### What I learned
+
+This project reinforced a lot of practical frontend skills for me:
+
+- Handling state management with React hooks (`useState`) to track cart count and menu toggles.  
+- Passing state between components cleanly in TypeScript.  
+- Using Tailwind utilities for responsive design instead of writing custom CSS.  
+- Improving UX details:
+  - Making sure the cart doesn’t overflow on mobile.
+  - Adding a dark overlay for better focus when the mobile menu is open.
+
+### Continued development
+
+Areas I’d like to explore next:
+
+- Add a lightbox modal for zooming product images.
+
+- Persist cart items with localStorage.
+
+- Replace hardcoded product data with a mock API.
+
+- Experiment with context API or Zustand for global state instead of prop drilling.
+
+### Useful resources
+
+- Tailwind CSS Docs – super helpful for responsive utilities.
+
+- React Docs – for clarifying component patterns.
+
+- TypeScript Handbook – to avoid type errors when passing props.
+
+## Author
+
+👤 Victor Iberi
+
+- Portfolio: [https://mavic-portfolio.vercel.app/]
+
+- GitHub: https://github.com/mavic01
+
+## Acknowledgments
+
+Thanks to AltSchool Africa and my personal practice projects for giving me the structure to keep building and refining my frontend skills. Also, a big shoutout to open-source docs and tutorials that made solving tricky UI/UX details (like the mobile menu animation) much easier.

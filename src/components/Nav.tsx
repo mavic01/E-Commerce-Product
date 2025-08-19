@@ -36,8 +36,11 @@ const Nav: FC<NavProps> = ({ cartCount, setCartCount, currentImg, qty }) => {
             <span className="w-6 h-[2px] bg-[#555]"></span>
           </button>
           {/* Logo */}
-          <a href="/" className="text-2xl md:text-3xl font-bold">
-            Sneakers
+          <a
+            href="/"
+            className="text-2xl md:text-3xl font-bold text-[#1d2025ff]"
+          >
+            sneakers
           </a>
 
           {/* Desktop Menu */}
@@ -62,7 +65,10 @@ const Nav: FC<NavProps> = ({ cartCount, setCartCount, currentImg, qty }) => {
           {/* Right Icons */}
           <div className="flex items-center gap-6 relative">
             {cartCount > 0 && (
-              <span className="absolute top-1 right-12 bg-[#ff7d1a] text-white text-xs font-bold px-2 py-0.3 rounded-full">
+              <span
+                onClick={handleCartOpen}
+                className="absolute top-1 right-12 bg-[#ff7d1a] text-white text-xs font-bold px-2 py-0.3 rounded-full"
+              >
                 {cartCount}
               </span>
             )}
@@ -82,24 +88,47 @@ const Nav: FC<NavProps> = ({ cartCount, setCartCount, currentImg, qty }) => {
         </div>
 
         {/* Mobile Menu */}
+        {/* Mobile Menu + Overlay */}
         {isOpen && (
-          <ul className="flex flex-col items-start gap-4 mt-4 pb-4 text-[#555] md:hidden border-b border-[#555]">
-            <li>
-              <a href="#">Collection</a>
-            </li>
-            <li>
-              <a href="#">Men</a>
-            </li>
-            <li>
-              <a href="#">Women</a>
-            </li>
-            <li>
-              <a href="#">About</a>
-            </li>
-            <li>
-              <a href="#">Contact</a>
-            </li>
-          </ul>
+          <div className="fixed inset-0 z-40 md:hidden flex">
+            <div
+              onClick={() => setIsOpen(false)}
+              className="absolute inset-0 bg-black/60 transition-opacity duration-500 ease-in-out"
+            />
+
+            {/* Menu slide */}
+            <div
+              className={`relative z-50 bg-white w-2/3 h-full shadow-lg transform 
+        transition-transform duration-500 ease-in-out
+        ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-3xl font-bold p-6"
+              >
+                ×
+              </button>
+
+              <ul className="flex flex-col items-start gap-6 mt-4 px-6 text-[#555]">
+                <li>
+                  <a href="#">Collection</a>
+                </li>
+                <li>
+                  <a href="#">Men</a>
+                </li>
+                <li>
+                  <a href="#">Women</a>
+                </li>
+                <li>
+                  <a href="#">About</a>
+                </li>
+                <li>
+                  <a href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         )}
       </nav>
 
@@ -108,18 +137,18 @@ const Nav: FC<NavProps> = ({ cartCount, setCartCount, currentImg, qty }) => {
           <h1 className="font-bold border-b border-gray pb-2 px-4">Cart</h1>
           {cartCount > 0 ? (
             <div className="px-4 flex flex-col gap-4">
-              <div className="flex items-start gap-2">
+              <div className="flex items-center gap-2">
                 <img
                   src={currentImg}
                   className="w-10 h-10 rounded object-cover"
                   alt="Product Image"
                 />
                 <div className="px-4">
-                  <h1 className="text-sm text-[#999]">
+                  <h1 className="text-sm text-[#68707dff]">
                     Fall Limited Edition Sneakers
                   </h1>
                   <p className="flex gap-2">
-                    <span className="text-sm text-[#999]">
+                    <span className="text-sm text-[#68707dff]">
                       $125.00 &times; {cartCount + qty}
                     </span>
                     <span className="text-sm font-semibold">
